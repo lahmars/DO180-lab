@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mymongo-mongodb
+  labels:
+    app: mongodb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+      - name: mongodb
+        image: quay.io/centos7/mongodb-36-centos7:latest
+        ports:
+        - containerPort: 27017
+        env:
+        - name: MONGODB_USER
+          value: "root"
+        - name: MONGODB_PASSWORD
+          value: "mymongopassword"
+        - name: MONGODB_DATABASE
+          value: "admin"
+        - name: MONGODB_ADMIN_PASSWORD
+          value: "adminsecret"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mymongo-mongodb
+spec:
+  ports:
+  - port: 27017
+    targetPort: 27017
+  selector:
+    app: mongodb
