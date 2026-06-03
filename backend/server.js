@@ -8,21 +8,19 @@ const port = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 
-// Configuration MongoDB via variables d'environnement
-const mongoUrl = process.env.MONGO_URL || 'mongodb://root:secret@mongodb:27017';
-const dbName = process.env.MONGO_DB || 'demodb';
+// Se connecte au nom DNS généré automatiquement par le devfile
+const mongoUrl = process.env.MONGO_URL || 'mongodb://root:mymongopassword@mymongo-mongodb:27017';
+const dbName = process.env.MONGO_DB || 'admin';
 let db, todoCollection;
 
-// Connexion à la base de données
 MongoClient.connect(mongoUrl, { useUnifiedTopology: true })
     .then(client => {
-        console.log('=> Connecté avec succès à MongoDB');
+        console.log('=> Connecté à MongoDB !');
         db = client.db(dbName);
-        todoCollection = db.collection('todos');
+        todoCollection = db.collection('tasks');
     })
-    .catch(error => console.error('! Erreur de connexion MongoDB:', error));
+    .catch(error => console.error('! Erreur MongoDB:', error));
 
-// API : Récupérer les tâches
 app.get('/api/todos', async (req, res) => {
     try {
         const todos = await todoCollection.find().toArray();
@@ -32,7 +30,6 @@ app.get('/api/todos', async (req, res) => {
     }
 });
 
-// API : Ajouter une tâche
 app.post('/api/todos', async (req, res) => {
     try {
         const newTodo = { text: req.body.text, createdAt: new Date() };
@@ -43,9 +40,6 @@ app.post('/api/todos', async (req, res) => {
     }
 });
 
-// Route de Health Check (Bonne pratique OpenShift)
 app.get('/health', (req, res) => res.send('OK'));
 
-app.listen(port, () => {
-    console.log(`Backend actif sur le port ${port}`);
-});
+app.listen(port, () => console.log(`Backend sur le port ${port}`));

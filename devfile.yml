@@ -1,0 +1,26 @@
+schemaVersion: 2.2.0
+metadata:
+  name: openshift-auto-demo
+  version: 1.0.0
+  description: "Démo Multi-tiers automatique pour OpenShift"
+  tags: ["Node.js", "Express", "MongoDB"]
+projects:
+  - name: auto-app
+    git:
+      checkoutFrom: main
+components:
+  # Déploiement automatique de MongoDB
+  - name: mymongo-mongodb
+    container:
+      image: quay.io/centos7/mongodb-36-centos7:latest
+      ports:
+        - containerPort: 27017
+      env:
+        - name: MONGODB_USER
+          value: "root"
+        - name: MONGODB_PASSWORD
+          value: "mymongopassword"
+        - name: MONGODB_DATABASE
+          value: "admin"
+        - name: MONGODB_ADMIN_PASSWORD
+          value: "adminsecret"

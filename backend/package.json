@@ -1,7 +1,6 @@
 {
   "name": "demo-backend",
   "version": "1.0.0",
-  "description": "API pour la démo OpenShift",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
