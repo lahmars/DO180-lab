@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: CHANGE_ME
+  labels:
+    app: database
+spec:
+  ports:
+  - port: 3306
+    name: mysql
+  clusterIP: CHANGE_ME
+  selector:
+    app: CHANGE_ME

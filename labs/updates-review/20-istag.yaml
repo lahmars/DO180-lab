@@ -1,0 +1,18 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: php-ssl
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - annotations: null
+    from:
+      kind: DockerImage
+      name: quay.io/linuxlabapp/php-ssl:1-222
+    name: "1-222"
+  - annotations: null
+    from:
+      kind: ImageStreamTag
+      name: php-ssl:1-222
+    name: "1"

@@ -1,0 +1,13 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: versioned-hello
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - annotations: null
+    from:
+      kind: DockerImage
+      name: quay.io/linuxlabapp/versioned-hello:1-123
+    name: "1"

@@ -1,0 +1,3 @@
+registry.ocp4.example.com:8443/redhattraining/php-ssl:latest
+registry.ocp4.example.com:8443/redhattraining/php-ssl:1-222
+registry.ocp4.example.com:8443/redhattraining/php-ssl:1-234
