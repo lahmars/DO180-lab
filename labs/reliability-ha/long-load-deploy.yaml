@@ -56,6 +56,6 @@ spec:
     name: long-load
 status:
   ingress:
-  - routerCanonicalHostname: router-default.apps.ocp4.example.com
+  - routerCanonicalHostname: router-default.apps.{{ CHANGE ME}} #put apps domain
     routerName: default
     wildcardPolicy: None
