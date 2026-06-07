@@ -10,6 +10,6 @@ if [ -z "$APPS_DOMAIN" ]; then
 fi
 
 # 2. Remplacement à la volée dans ton fichier deploy.toml
-sed -i "s/router-default\.apps\.ocp4\.example\.com/router-default.${APPS_DOMAIN}/g" deploy.tml
+sed -i "s/router-default\.apps\.ocp4\.example\.com/router-default.${APPS_DOMAIN}/g" long-load-deploy.yaml
 
 echo "Le fichier deploy.tml a été mis à jour avec : router-default.${APPS_DOMAIN}"
