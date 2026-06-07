@@ -1,6 +1,5 @@
 #!/bin/bash
 
-HOST={{ CHANGE ME }} #put cluster node
-PORT=$(oc get service longload -o jsonpath='{.spec.ports[0].nodePort}')
+ROUTE_HOST=$(oc get route longload -o jsonpath='{.spec.host}' 2>/dev/null)
 
-curl http://${HOST}:${PORT}/unleak
+curl http://${ROUTE_HOST}/unleak
