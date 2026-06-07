@@ -16,7 +16,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
         - name: CHANGE_ME
-          image: rquay.io/linuxlabapp/mysql-app:v1
+          image: quay.io/linuxlabapp/mysql-app:v1
           ports:
             - name: database
               containerPort: 3306
