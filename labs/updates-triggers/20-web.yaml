@@ -50,7 +50,7 @@ items:
         app: version
       name: version
     spec:
-      host: version-updates-triggers.apps.ocp4.example.com
+      host: version-updates-triggers.apps.{{ CHANGE ME }} # put apps domain
       to:
         kind: Service
         name: version
