@@ -5,7 +5,7 @@
 # All rights reserved.
 # No warranty, explicit or implied, provided.
 
-HOST=master01.ocp4.example.com
+HOST=master01.ocp4.example.com #CHNGE ME
 PORT=$(oc get service longload -o jsonpath='{.spec.ports[0].nodePort}')
 I=1
 
