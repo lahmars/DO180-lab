@@ -15,7 +15,7 @@ spec:
         app: long-load
     spec:
       containers:
-      - image: rquay.io/linuxlabapp/long-load:v1
+      - image: quay.io/linuxlabapp/long-load:v1
         imagePullPolicy: Always
         name: long-load
         env:
