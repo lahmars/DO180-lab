@@ -5,7 +5,7 @@
 # All rights reserved.
 # No warranty, explicit or implied, provided.
 
-HOST=master01.ocp4.example.com
+HOST={{ }} # put node name
 PORT=$(oc get service version -o jsonpath='{.spec.ports[0].nodePort}')
 
 while :
