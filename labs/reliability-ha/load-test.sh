@@ -5,12 +5,12 @@ APPS_DOMAIN=$(oc get ingress.config.openshift.io cluster -o jsonpath='{.spec.dom
 
 # Sécurité : Si la commande 'oc' échoue ou n'est pas connectée, on met une valeur par défaut
 if [ -z "$APPS_DOMAIN" ]; then
-    echo "⚠️ Impossible de détecter le domaine via 'oc'. Connexion au cluster manquante ?"
+    echo "Impossible de détecter le domaine via 'oc'. Connexion au cluster manquante ?"
     echo "Utilisation du domaine par défaut..."
     APPS_DOMAIN="apps.ocp4.example.com"
 fi
 
-echo "🚀 Démarrage des requêtes de santé sur : long-load-reliability-ha.${APPS_DOMAIN}/health"
+echo "Démarrage des requêtes de santé sur : long-load-reliability-ha.${APPS_DOMAIN}/health"
 
 # 2. Boucle infinie avec la variable automatique
 while true
