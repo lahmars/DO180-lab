@@ -15,7 +15,7 @@ spec:
         app: app2
     spec:
       containers:
-      - image: quay.io/linuxlabapp/php-ssl:1-222
+      - image: quay.io/linuxlabapp/php-ssl:latest
         name: php-ssl
         command:
         - sleep
