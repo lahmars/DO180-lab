@@ -1,15 +1,9 @@
 #!/bin/bash
-#
-# Copyright (c) 2023 Red Hat Training <training@redhat.com>
-#
-# All rights reserved.
-# No warranty, explicit or implied, provided.
 
-HOST={{ }} # put node name
-PORT=$(oc get service version -o jsonpath='{.spec.ports[0].nodePort}')
+HOST=$(oc get route version -o jsonpath='{.spec.host}')
 
 while :
 do
-	curl http://${HOST}:${PORT}
+	curl -m.5 -s -f http://${HOST}
 	sleep 0.5
 done
